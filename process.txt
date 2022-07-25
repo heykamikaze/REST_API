@@ -1,0 +1,23 @@
+1. create http server using web framework based on httpRouter -> positioned as quick and useful "github.com/julienschnidt/httprouter"
+127.0.0.0.1 - look back interface - it is not localhost lol. as it receives trafic, it sends it pack, you create server,
+so we can change it locally
+we send traffick to the net interface via ip address
+
+
+2. all handlers will be handled (lol) under handlers in the h dir. making dir named after object
+
+_______________________________________________________
+user service, REST API
+кэширование, идемпотентность операций, stateless, построен поверх
+http, использует коды
+
+GET /users -- list of users -- 200 ok, 404not found, 500 dead
+GET /users/id -- user by id -- 200 ok, 404not found, 500 dead
+POST /users/:id -- create user -- 204 no contact, 4xx, HeaderLocation: url
+PUT /users/:id -- fully update user -- 204, 200
+PATCH /users/:id -- partially update user -- 204, 200
+DELETE /users/:id -- delete user by id -- 204, 404, 400
+
+_______________________________________________________
+тест запроса http ранить в сервисах, чтобы проверить что выводит и все ли методы отвечают
+create new http -> run
