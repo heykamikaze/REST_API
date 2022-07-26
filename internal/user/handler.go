@@ -2,6 +2,7 @@ package user
 
 import (
 	"awesomeProject/internal/handlers"
+	"awesomeProject/package/logging"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 )
@@ -14,10 +15,13 @@ const (
 )
 
 type handler struct {
+	logger logging.Logger
 } //структура хендлера реализует интерфейс хендлер logger service
 
-func NewHandler() handlers.Handler {
-	return &handler{} //создаем струткуру но возвращаем интерфейс, структура неэкспортируемая
+func NewHandler(logger logging.Logger) handlers.Handler {
+	return &handler{
+		logger: logger,
+	} //создаем струткуру но возвращаем интерфейс, структура неэкспортируемая
 }
 
 func (h *handler) Register(router *httprouter.Router) {
